@@ -9,6 +9,8 @@ namespace MyContacts.Models
 		public int contactId { get; set; }
 		public string name { get; set; }
 		public string number { get; set; }
+		public string address { get; set; }
+		public string email { get; set; }
 
 	}
 }
