@@ -41,6 +41,38 @@ namespace MyContacts.Models
                 updatedContact.email = contact.email;
             }
         }
+
+        public static void AddContact(Contact contact)
+        {
+            int maxId = 0;
+            if (contacts.Count > 0)
+            {
+                maxId = contacts.Max(x => x.contactId);
+                contact.contactId = maxId + 1;             
+            }
+            else
+            {
+                contact.contactId = 1;
+            }
+            contacts.Add(contact);
+
+        }
+
+        public static void DeleteContact(int contactId)
+        {
+            var contact = contacts.FirstOrDefault(x => x.contactId == contactId);
+            if (contact != null)
+            {
+                contacts.Remove(contact);
+            }
+            
+        }
+
+        public static List<Contact> SearchContacts(string searchText)
+        {
+            var filteredContacts = contacts.Where(x => !string.IsNullOrWhiteSpace(x.name) && x.name.StartsWith(searchText, StringComparison.OrdinalIgnoreCase))?.ToList();
+            return filteredContacts;
+        }
     }
 }
 
