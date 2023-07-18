@@ -1,19 +1,31 @@
 ﻿namespace MyContacts.Views;
+using MyContacts.Models;
 
 public partial class ContactsPage : ContentPage
 {
 	public ContactsPage()
 	{
 		InitializeComponent();
+
+		List<Contact> contacts = ContactRepository.GetContacts();
+		contactsList.ItemsSource = contacts;
 	}
 
-    void addContactButton_Clicked(System.Object sender, System.EventArgs e)
+    async void contactsList_ItemSelected(System.Object sender, Microsoft.Maui.Controls.SelectedItemChangedEventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(AddContactsPage));
+		if (contactsList.SelectedItem != null)
+		{
+			//Logic
+			await Shell.Current.GoToAsync(nameof(EditContactsPage));
+
+        }
+
     }
 
-    void editContactButton_Clicked(System.Object sender, System.EventArgs e)
+    void contactsList_ItemTapped(System.Object sender, Microsoft.Maui.Controls.ItemTappedEventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(EditContactsPage));
+        //Deselect item
+		//Best to deselect in this event handler
+        contactsList.SelectedItem = null;
     }
 }
