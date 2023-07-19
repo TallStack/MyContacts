@@ -1,22 +1,28 @@
 ﻿using MyContacts.Models;
+using MyContacts.UseCases;
+
 namespace MyContacts.Views;
 
 public partial class AddContactsPage : ContentPage
 {
-	public AddContactsPage()
+    private readonly IAddContactUseCase addContactUseCase;
+
+    public AddContactsPage(IAddContactUseCase addContactUseCase)
 	{
 		InitializeComponent();
-	}
-
-    void contactControl_OnCancel(System.Object sender, System.EventArgs e)
-    {
-        //Navigating to root/parent page
-        Shell.Current.GoToAsync("..");
+        this.addContactUseCase = addContactUseCase;
     }
 
-    void contactControl_OnSave(System.Object sender, System.EventArgs e)
+    async void contactControl_OnCancel(System.Object sender, System.EventArgs e)
     {
-        ContactRepository.AddContact(new Models.Contact
+        //Navigating to root/parent page
+        await Shell.Current.GoToAsync("..");
+    }
+
+    async void contactControl_OnSave(System.Object sender, System.EventArgs e)
+    {
+        //ContactRepository.AddContact(new Models.Contact
+        await addContactUseCase.ExecuteAsync(new CoreBusiness.Contact
         {
             name = contactControl.name,
             email = contactControl.email,
@@ -24,7 +30,7 @@ public partial class AddContactsPage : ContentPage
             address = contactControl.address
         });
         //Shell.Current.GoToAsync($"//{nameof(ContactsPage)}");
-        Shell.Current.GoToAsync("..");
+        await Shell.Current.GoToAsync("..");
     }
 
     void contactControl_OnError(System.Object sender, System.String e)

@@ -1,10 +1,11 @@
 ﻿using MyContacts.CoreBusiness;
+using MyContacts.UseCases.Interfaces;
 using MyContacts.UseCases.PluginInterfaces;
 
 namespace MyContacts.UseCases;
 
 // All the code in this file is included in all platforms.
-public class ViewContactsUseCases
+public class ViewContactsUseCases : IViewContactsUseCases
 {
     private readonly IContactRepository contactRepository;
     public ViewContactsUseCases(IContactRepository contactRepository)

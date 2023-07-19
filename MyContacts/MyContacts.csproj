@@ -69,4 +69,9 @@
 	  <Folder Include="Models\" />
 	  <Folder Include="Controls\" />
 	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\MyContacts.CoreBusiness\MyContacts.CoreBusiness.csproj" />
+	  <ProjectReference Include="..\Plugins\MyContacts.Plugins.DataStore.InMemory\MyContacts.Plugins.DataStore.InMemory.csproj" />
+	  <ProjectReference Include="..\MyContacts.UseCases\MyContacts.UseCases.csproj" />
+	</ItemGroup>
 </Project>

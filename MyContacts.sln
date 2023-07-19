@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.CoreBusiness", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.UseCases", "MyContacts.UseCases\MyContacts.UseCases.csproj", "{A86EB7C2-22C8-46BE-841E-914C13F86D74}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{22FBD65B-066D-4843-9388-29CC8AECE667}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.Plugins.DataStore.InMemory", "Plugins\MyContacts.Plugins.DataStore.InMemory\MyContacts.Plugins.DataStore.InMemory.csproj", "{7554641B-11AF-415D-9CDD-89C945D31799}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,11 +31,18 @@ Global
 		{A86EB7C2-22C8-46BE-841E-914C13F86D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A86EB7C2-22C8-46BE-841E-914C13F86D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A86EB7C2-22C8-46BE-841E-914C13F86D74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7554641B-11AF-415D-9CDD-89C945D31799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7554641B-11AF-415D-9CDD-89C945D31799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7554641B-11AF-415D-9CDD-89C945D31799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7554641B-11AF-415D-9CDD-89C945D31799}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2C9D99B4-BE31-42E8-A02B-FBBEA1D11F08}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7554641B-11AF-415D-9CDD-89C945D31799} = {22FBD65B-066D-4843-9388-29CC8AECE667}
 	EndGlobalSection
 EndGlobal

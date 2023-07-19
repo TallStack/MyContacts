@@ -21,14 +21,7 @@
 	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\MyContacts.CoreBusiness\MyContacts.CoreBusiness.csproj" />
-	</ItemGroup>
-	<ItemGroup>
-	  <None Remove="Plugin Interfaces\" />
-	  <None Remove="Interfaces\" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Plugin Interfaces\" />
-	  <Folder Include="Interfaces\" />
+	  <ProjectReference Include="..\..\MyContacts.UseCases\MyContacts.UseCases.csproj" />
+	  <ProjectReference Include="..\..\MyContacts.CoreBusiness\MyContacts.CoreBusiness.csproj" />
 	</ItemGroup>
 </Project>
