@@ -24,4 +24,7 @@
 	  <ProjectReference Include="..\..\MyContacts.UseCases\MyContacts.UseCases.csproj" />
 	  <ProjectReference Include="..\..\MyContacts.CoreBusiness\MyContacts.CoreBusiness.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+	</ItemGroup>
 </Project>
