@@ -26,9 +26,11 @@
 	<ItemGroup>
 	  <None Remove="Plugin Interfaces\" />
 	  <None Remove="Interfaces\" />
+	  <None Remove="Use Cases\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Plugin Interfaces\" />
 	  <Folder Include="Interfaces\" />
+	  <Folder Include="Use Cases\" />
 	</ItemGroup>
 </Project>
