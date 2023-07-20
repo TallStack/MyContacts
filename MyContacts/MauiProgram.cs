@@ -4,7 +4,9 @@ using MyContacts.Plugins.DataStore.InMemory;
 using MyContacts.UseCases;
 using MyContacts.UseCases.Interfaces;
 using MyContacts.UseCases.PluginInterfaces;
+using MyContacts.ViewModels;
 using MyContacts.Views;
+using MyContacts.Views_MVVM;
 
 namespace MyContacts;
 
@@ -25,7 +27,7 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
+		// Use Case Dependency Injection
 		builder.Services.AddSingleton<IContactRepository, ContactInMemoryRepository>();
         builder.Services.AddSingleton<IViewContactsUseCases, ViewContactsUseCases>();
         builder.Services.AddSingleton<IViewContactUseCase, ViewContactUseCase>();
@@ -33,10 +35,16 @@ public static class MauiProgram
         builder.Services.AddTransient<IAddContactUseCase, AddContactUseCase>();
         builder.Services.AddTransient<IDeleteContactUseCase, DeleteContactUseCase>();
 
+		//Event driven/Use Case View Dependency injection
         builder.Services.AddSingleton<ContactsPage>();
         builder.Services.AddSingleton<EditContactsPage>();
         builder.Services.AddSingleton<AddContactsPage>();
 
+		//ViewModels dependency injection
+		builder.Services.AddSingleton<ContactViewModel>();
+
+        //ViewModel views dependency injection
+        builder.Services.AddSingleton<Contacts_MVVM_Page>();
         return builder.Build();
 	}
 }

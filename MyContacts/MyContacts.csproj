@@ -65,12 +65,14 @@
 	  <None Remove="Models\" />
 	  <None Remove="Controls\" />
 	  <None Remove="ViewModels\" />
+	  <None Remove="Views_MVVM\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Views\" />
 	  <Folder Include="Models\" />
 	  <Folder Include="Controls\" />
 	  <Folder Include="ViewModels\" />
+	  <Folder Include="Views_MVVM\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\MyContacts.CoreBusiness\MyContacts.CoreBusiness.csproj" />

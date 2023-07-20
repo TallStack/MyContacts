@@ -1,28 +1,32 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using MyContacts.UseCases.Interfaces;
 using Contact = MyContacts.CoreBusiness.Contact;
 namespace MyContacts.ViewModels
 {
-	public class ContactViewModel
+	public class ContactViewModel : ObservableObject
 	{
 		public ContactViewModel(IViewContactsUseCases viewContactsUseCases)
 		{
             this.viewContactsUseCases = viewContactsUseCases;
-			this.contacts = new ObservableCollection<Contact>();
+			this.Contacts = new ObservableCollection<Contact>();
         }
 
 		private readonly IViewContactsUseCases viewContactsUseCases;
-		public ObservableCollection<Contact> contacts;
+		public ObservableCollection<Contact> Contacts { get; set; }
 
-		public async Task LoadContacts(string searchText)
+		public async Task LoadContactsAsync()
 		{
-			this.contacts.Clear();
-			var Contacts = await viewContactsUseCases.ExecuteAsync(null);
-			if (Contacts != null && Contacts.Count > 0)
+			this.Contacts.Clear();
+			var contacts = await viewContactsUseCases.ExecuteAsync(null);
+			if (contacts != null && contacts.Count > 0)
 			{
-				foreach (var contact in Contacts)
-					contacts.Add(contact);
+				foreach (var contact in contacts)
+				{
+                    this.Contacts.Add(contact);
+                }
+					
 			}
 		}
     }

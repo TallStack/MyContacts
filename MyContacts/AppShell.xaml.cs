@@ -1,4 +1,5 @@
 ﻿using MyContacts.Views;
+using MyContacts.Views_MVVM;
 
 namespace MyContacts;
 
@@ -10,6 +11,8 @@ public partial class AppShell : Shell
 		Routing.RegisterRoute(nameof(ContactsPage), typeof(ContactsPage));
         Routing.RegisterRoute(nameof(AddContactsPage), typeof(AddContactsPage));
         Routing.RegisterRoute(nameof(EditContactsPage), typeof(EditContactsPage));
+
+        Routing.RegisterRoute(nameof(Contacts_MVVM_Page), typeof(Contacts_MVVM_Page));
     }
 }
 

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MyContacts.ViewModels"
+             xmlns:m="clr-namespace:MyContacts.CoreBusiness;assembly=MyContacts.CoreBusiness"
+             x:DataType="vm:ContactViewModel"
+             x:Class="MyContacts.Views_MVVM.Contacts_MVVM_Page"
+             Title="Contacts_MVVM_Page">
+    <Grid RowDefinitions="50,*,50"
+          ColumnDefinitions="*"
+          Padding="5">
+        <SearchBar x:Name="searchEntry" Grid.Row="0" Grid.Column="0" Placeholder="Search Contact"
+                   BackgroundColor="Transparent"
+                   TextColor="White"
+                   />
+    <CollectionView Grid.Row="1"
+                    Grid.Column="0"
+                    ItemsSource="{Binding Contacts}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="m:Contact">
+              
+                <StackLayout>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"
+                                           IsDestructive="True"
+                                           BackgroundColor="Red"></SwipeItem>
+                                <SwipeItem Text="Edit"
+                                           BackgroundColor="Green"/>
+                            </SwipeItems>
+
+                        </SwipeView.RightItems>
+                   
+                    <Frame Margin="0,5,0,5">
+                        <StackLayout Orientation="Vertical" Spacing="5">
+                            <Label Text="{Binding name}"/>
+                            <Label Text="{Binding email}"/>
+
+                        </StackLayout>
+
+                    </Frame>
+                    
+                    </SwipeView>
+                </StackLayout>
+                
+
+            </DataTemplate>
+
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
+    <Button x:Name="addContactBtn" Text="Add Contact" Grid.Row="2" Grid.Column="0"></Button>
+    </Grid>
+</ContentPage>
