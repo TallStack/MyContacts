@@ -4,7 +4,8 @@
              x:Class="MyContacts.Views_MVVM.EditContact_MVVM_Page"
              xmlns:controls="clr-namespace:MyContacts.Views_MVVM.Controls_MVVM"
              Title="Edit Contact">
-   <controls:ContactControl_MVVM BindingContext="{Binding .}">
+   <controls:ContactControl_MVVM BindingContext="{Binding .}"
+                                 IsForEdit="True">
 
 
    </controls:ContactControl_MVVM>

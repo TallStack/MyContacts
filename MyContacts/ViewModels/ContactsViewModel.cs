@@ -21,11 +21,12 @@ namespace MyContacts.ViewModels
         private readonly IEditContactUseCase editContactUseCase;
 
         public ContactsViewModel(IViewContactUseCase viewContactUseCase,
-            IEditContactUseCase editContactUseCase)
+            IEditContactUseCase editContactUseCase, IAddContactUseCase addContactUseCase)
 		{
             this.Contact = new Contact();
             this.viewContactUseCase = viewContactUseCase;
             this.editContactUseCase = editContactUseCase;
+            this.addContactUseCase = addContactUseCase;
         }
         private Contact contact;
 
@@ -37,6 +38,8 @@ namespace MyContacts.ViewModels
                 SetProperty(ref contact, value);
             }
         }
+
+        public IAddContactUseCase addContactUseCase { get; }
 
         public async Task LoadContact(int contactId)
         {
@@ -55,6 +58,13 @@ namespace MyContacts.ViewModels
         {
             await Shell.Current.GoToAsync("..");
 
+        }
+
+        [RelayCommand]
+        public async Task AddContact()
+        {
+            await this.addContactUseCase.ExecuteAsync(this.contact);
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

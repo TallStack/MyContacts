@@ -57,6 +57,6 @@
         </CollectionView.ItemTemplate>
 
     </CollectionView>
-    <Button x:Name="addContactBtn" Text="Add Contact" Grid.Row="2" Grid.Column="0"></Button>
+    <Button Text="Add Contact" Grid.Row="2" Grid.Column="0" Command="{Binding GoToAddContactCommand}"></Button>
     </Grid>
 </ContentPage>
