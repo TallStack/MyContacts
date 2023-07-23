@@ -11,7 +11,8 @@
             <Label Text="Name:" VerticalOptions="Center" WidthRequest="60"></Label>
             <Entry VerticalOptions="Center" WidthRequest="150" Text="{Binding Contact.name}">
                 <Entry.Behaviors>
-                    <toolkit:TextValidationBehavior x:Name="nameValidator" MinimumLength="4" Flags="ValidateOnAttaching,ValidateOnValueChanged">
+                    <toolkit:TextValidationBehavior x:Name="nameValidator" MinimumLength="4" Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                    IsValid="{Binding IsNameProvided}">
                     </toolkit:TextValidationBehavior>
                 </Entry.Behaviors>
             </Entry>
@@ -31,10 +32,12 @@
                 <Entry.Behaviors>
                     <toolkit:MultiValidationBehavior x:Name="emailValidator">
                         <toolkit:TextValidationBehavior MinimumLength="4" Flags="ValidateOnAttaching,ValidateOnValueChanged"
-                                                        toolkit:MultiValidationBehavior.Error="Email required">
+                                                        toolkit:MultiValidationBehavior.Error="Email required"
+                                                        IsValid="{Binding IsEmailProvided}">
                     </toolkit:TextValidationBehavior>
                         <toolkit:EmailValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
-                                                         toolkit:MultiValidationBehavior.Error="Email format incorrect">
+                                                         toolkit:MultiValidationBehavior.Error="Email format incorrect"
+                                                         IsValid="{Binding IsEmailValid}">
                     </toolkit:EmailValidationBehavior>
                     </toolkit:MultiValidationBehavior>
                 </Entry.Behaviors>

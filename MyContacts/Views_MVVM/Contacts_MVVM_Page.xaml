@@ -13,6 +13,7 @@
         <SearchBar x:Name="searchEntry" Grid.Row="0" Grid.Column="0" Placeholder="Search Contact"
                    BackgroundColor="Transparent"
                    TextColor="White"
+                   Text="{Binding FilterText}"
                    />
     <CollectionView Grid.Row="1"
                     Grid.Column="0"

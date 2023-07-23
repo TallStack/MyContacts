@@ -28,6 +28,9 @@ namespace MyContacts.ViewModels
             this.editContactUseCase = editContactUseCase;
             this.addContactUseCase = addContactUseCase;
         }
+        public bool IsNameProvided { get; set; }
+        public bool IsEmailProvided { get; set; }
+        public bool IsEmailValid { get; set; }
         private Contact contact;
 
         public Contact Contact
@@ -49,8 +52,13 @@ namespace MyContacts.ViewModels
         [RelayCommand]
         public async Task EditContact()
         {
-            await this.editContactUseCase.ExecuteAsync(this.contact.contactId, this.contact);
-            await Shell.Current.GoToAsync("..");
+            if (await ValidateContact())
+            {
+                await this.editContactUseCase.ExecuteAsync(this.contact.contactId, this.contact);
+                await Shell.Current.GoToAsync("..");
+            }
+
+            
         }
 
         [RelayCommand]
@@ -63,8 +71,31 @@ namespace MyContacts.ViewModels
         [RelayCommand]
         public async Task AddContact()
         {
-            await this.addContactUseCase.ExecuteAsync(this.contact);
-            await Shell.Current.GoToAsync("..");
+            if (await ValidateContact())
+            {
+                await this.addContactUseCase.ExecuteAsync(this.contact);
+                await Shell.Current.GoToAsync("..");
+            }
+        }
+
+        private async Task<bool> ValidateContact()
+        {
+            if (!this.IsNameProvided)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Name is required", "OK");
+                return false;
+            }
+            if (!this.IsEmailProvided)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Email is required", "OK");
+                return false;
+            }
+            if (!this.IsEmailValid)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Email not valid", "OK");
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -22,11 +22,22 @@ namespace MyContacts.ViewModels
         private readonly IDeleteContactUseCase deleteContactUseCase;
 
         public ObservableCollection<Contact> Contacts { get; set; }
+        private string filterText;
 
-		public async Task LoadContactsAsync()
+        public string FilterText
+        {
+            get => filterText;
+            set
+            {
+                SetProperty(ref filterText, value);
+                LoadContactsAsync(filterText);
+            }
+        }
+
+        public async Task LoadContactsAsync(string filterText = null)
 		{
 			this.Contacts.Clear();
-			var contacts = await viewContactsUseCases.ExecuteAsync(null);
+			var contacts = await viewContactsUseCases.ExecuteAsync(filterText);
 			if (contacts != null && contacts.Count > 0)
 			{
 				foreach (var contact in contacts)

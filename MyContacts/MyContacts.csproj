@@ -80,5 +80,6 @@
 	  <ProjectReference Include="..\MyContacts.CoreBusiness\MyContacts.CoreBusiness.csproj" />
 	  <ProjectReference Include="..\Plugins\MyContacts.Plugins.DataStore.InMemory\MyContacts.Plugins.DataStore.InMemory.csproj" />
 	  <ProjectReference Include="..\MyContacts.UseCases\MyContacts.UseCases.csproj" />
+	  <ProjectReference Include="..\Plugins\MyContacts.DataStore.SQLLite\MyContacts.DataStore.SQLLite.csproj" />
 	</ItemGroup>
 </Project>
