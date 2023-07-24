@@ -52,6 +52,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<EditContact_MVVM_Page>();
         builder.Services.AddSingleton<AddContact_MVVM_Page>();
         return builder.Build();
+        //To view database go to sqlite browser . org and download tool
 	}
 }
 
