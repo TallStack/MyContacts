@@ -40,6 +40,13 @@ app.MapPost("api/contacts", async (Contact contact, ApplicationDbContext db) =>
     await db.SaveChangesAsync();
 });
 
+app.MapGet("api/contacts/{contactId}", async (int contactId, ApplicationDbContext db) =>
+{
+    var contact = await db.Contacts.FirstOrDefaultAsync(x => x.contactId == contactId);
+    return Results.Ok(contact);
+  
+});
+
 app.MapPut("api/contacts/{contactId}", async (int contactId, Contact contact, ApplicationDbContext db) =>
 {
     var contactToUpdate = await db.Contacts.FindAsync(contactId);
