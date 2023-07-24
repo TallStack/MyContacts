@@ -1,21 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1706.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts", "MyContacts\MyContacts.csproj", "{DF5F55D1-659E-41E9-9A71-6A312A5A1A9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContacts", "MyContacts\MyContacts.csproj", "{DF5F55D1-659E-41E9-9A71-6A312A5A1A9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.CoreBusiness", "MyContacts.CoreBusiness\MyContacts.CoreBusiness.csproj", "{B771D390-C19D-4D19-BCE7-C52C94240EFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContacts.CoreBusiness", "MyContacts.CoreBusiness\MyContacts.CoreBusiness.csproj", "{B771D390-C19D-4D19-BCE7-C52C94240EFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.UseCases", "MyContacts.UseCases\MyContacts.UseCases.csproj", "{A86EB7C2-22C8-46BE-841E-914C13F86D74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContacts.UseCases", "MyContacts.UseCases\MyContacts.UseCases.csproj", "{A86EB7C2-22C8-46BE-841E-914C13F86D74}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{22FBD65B-066D-4843-9388-29CC8AECE667}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.Plugins.DataStore.InMemory", "Plugins\MyContacts.Plugins.DataStore.InMemory\MyContacts.Plugins.DataStore.InMemory.csproj", "{7554641B-11AF-415D-9CDD-89C945D31799}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContacts.Plugins.DataStore.InMemory", "Plugins\MyContacts.Plugins.DataStore.InMemory\MyContacts.Plugins.DataStore.InMemory.csproj", "{7554641B-11AF-415D-9CDD-89C945D31799}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.DataStore.SQLLite", "Plugins\MyContacts.DataStore.SQLLite\MyContacts.DataStore.SQLLite.csproj", "{89FF834B-1CA3-4783-9AFD-1E3BA6787C77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContacts.DataStore.SQLLite", "Plugins\MyContacts.DataStore.SQLLite\MyContacts.DataStore.SQLLite.csproj", "{89FF834B-1CA3-4783-9AFD-1E3BA6787C77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.WebApi", "Plugins\MyContacts.WebApi\MyContacts.WebApi.csproj", "{636D68B1-FCDB-41E5-AC6A-52FFE8B01872}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContacts.WebApi", "Plugins\MyContacts.WebApi\MyContacts.WebApi.csproj", "{636D68B1-FCDB-41E5-AC6A-52FFE8B01872}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.DataStore.WebApi", "Plugins\MyContacts.DataStore.WebApi\MyContacts.DataStore.WebApi.csproj", "{A66B5EB9-3F8F-4B2D-862D-8D9C0093CA67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,16 +49,21 @@ Global
 		{636D68B1-FCDB-41E5-AC6A-52FFE8B01872}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{636D68B1-FCDB-41E5-AC6A-52FFE8B01872}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{636D68B1-FCDB-41E5-AC6A-52FFE8B01872}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A66B5EB9-3F8F-4B2D-862D-8D9C0093CA67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A66B5EB9-3F8F-4B2D-862D-8D9C0093CA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A66B5EB9-3F8F-4B2D-862D-8D9C0093CA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A66B5EB9-3F8F-4B2D-862D-8D9C0093CA67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2C9D99B4-BE31-42E8-A02B-FBBEA1D11F08}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7554641B-11AF-415D-9CDD-89C945D31799} = {22FBD65B-066D-4843-9388-29CC8AECE667}
 		{89FF834B-1CA3-4783-9AFD-1E3BA6787C77} = {22FBD65B-066D-4843-9388-29CC8AECE667}
 		{636D68B1-FCDB-41E5-AC6A-52FFE8B01872} = {22FBD65B-066D-4843-9388-29CC8AECE667}
+		{A66B5EB9-3F8F-4B2D-862D-8D9C0093CA67} = {22FBD65B-066D-4843-9388-29CC8AECE667}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C9D99B4-BE31-42E8-A02B-FBBEA1D11F08}
 	EndGlobalSection
 EndGlobal

@@ -8,6 +8,7 @@ using MyContacts.ViewModels;
 using MyContacts.Views;
 using MyContacts.Views_MVVM;
 using MyContacts.DataStore.SQLLite;
+using MyContacts.DataStore.WebApi;
 
 namespace MyContacts;
 
@@ -30,7 +31,8 @@ public static class MauiProgram
 #endif
         //Plugin Dependency injection (Replaces these to use different plugins)
         //builder.Services.AddSingleton<IContactRepository, ContactInMemoryRepository>();
-        builder.Services.AddSingleton<IContactRepository, ContactSQLiteRepository>();
+        //builder.Services.AddSingleton<IContactRepository, ContactSQLiteRepository>();
+        builder.Services.AddSingleton<IContactRepository, ContactWebApiRepository>();
         // Use Case Dependency Injection
         builder.Services.AddSingleton<IViewContactsUseCases, ViewContactsUseCases>();
         builder.Services.AddSingleton<IViewContactUseCase, ViewContactUseCase>();
